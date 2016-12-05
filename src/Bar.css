@@ -1,0 +1,18 @@
+.bar {
+  position: relative;
+  text-align: center;
+  margin: .5em;
+  padding: .2em;
+  border-radius: 5px;
+  border: 0px;
+  overflow: hidden;
+}
+
+.bar span {
+  background: aqua;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
