@@ -5,16 +5,26 @@ import Bar from './Bar';
 
 describe('Bar', () => {
   describe('render', () => {
-    it('contains the text of the bars width', () => {
-      var bar = TestUtils.renderIntoDocument(
+    var render = () => {
+      return TestUtils.renderIntoDocument(
         <Bar value='5' limit='10'/>
       );
+    };
 
+    it('contains the text of the bars width', () => {
       var bar_div = TestUtils.findRenderedDOMComponentWithTag(
-        bar, 'div'
+        render(), 'div'
       );
 
       expect(bar_div.textContent).toEqual('50%')
+    });
+
+    it('contains a span rendering the bar', () => {
+      var bar_span = TestUtils.findRenderedDOMComponentWithTag(
+        render(), 'span'
+      );
+
+      expect(bar_span.style.width).toEqual('50%')
     });
   });
 

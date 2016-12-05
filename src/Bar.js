@@ -10,7 +10,7 @@ class Bar extends Component {
     return(
       <div className='bar'>
         {this.width()}%
-        <span>
+        <span style={{ width: this.width()+'%' }}>
         </span>
       </div>
     );
