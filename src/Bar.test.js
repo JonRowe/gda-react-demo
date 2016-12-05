@@ -1,11 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
 import Bar from './Bar';
 
 describe('Bar', () => {
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<Bar />, div);
+  describe('render', () => {
+    it('contains the text of the bars width', () => {
+      var bar = TestUtils.renderIntoDocument(
+        <Bar value='5' limit='10'/>
+      );
+
+      var bar_div = TestUtils.findRenderedDOMComponentWithTag(
+        bar, 'div'
+      );
+
+      expect(bar_div.textContent).toEqual('50%')
+    });
   });
 
   describe('width', () => {

@@ -9,6 +9,7 @@ class Bar extends Component {
   render() {
     return(
       <div className='bar'>
+        {this.width()}%
         <span>
         </span>
       </div>
