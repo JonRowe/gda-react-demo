@@ -8,4 +8,10 @@ describe('Bar', () => {
     ReactDOM.render(<Bar />, div);
   });
 
+  describe('width', () => {
+    it('returns the % of limit', () => {
+      var bar = new Bar({value: 5, limit: 10});
+      expect(bar.width()).toEqual(50);
+    });
+  });
 });
