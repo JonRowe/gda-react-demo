@@ -1,0 +1,2 @@
+.bar{position:relative;text-align:center;margin:.5em;padding:.2em}.bar span{background:aqua;z-index:-1;position:absolute;top:0;bottom:0;left:0;border:0;border-radius:5px;-webkit-transition:width .5s ease-in-out;transition:width .5s ease-in-out}.bar span.over-limit{background:red}.buttons{margin:.5em;height:1.5em}.buttons button{margin:.2em}body{margin:0;padding:0;font-family:sans-serif}
+/*# sourceMappingURL=main.38d62552.css.map*/
