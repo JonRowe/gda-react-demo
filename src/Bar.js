@@ -3,7 +3,7 @@ import './Bar.css';
 
 class Bar extends Component {
   width() {
-    return (this.props.value / this.props.limit) * 100;
+    return parseInt((this.props.value / this.props.limit) * 100, 10);
   }
 
   render() {

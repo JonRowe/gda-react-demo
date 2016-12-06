@@ -33,5 +33,10 @@ describe('Bar', () => {
       var bar = new Bar({value: 5, limit: 10});
       expect(bar.width()).toEqual(50);
     });
+
+    it('returns the nearest whole number', () => {
+      var bar = new Bar({value: 5, limit: 6});
+      expect(bar.width()).toEqual(83);
+    });
   });
 });
