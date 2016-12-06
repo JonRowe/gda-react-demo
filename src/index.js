@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Bar from './Bar';
+import BarApp from './BarApp';
 import './index.css';
 
 ReactDOM.render(
-  <Bar />,
+  <BarApp />,
   document.getElementById('root')
 );
