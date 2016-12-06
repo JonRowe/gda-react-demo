@@ -5,7 +5,15 @@ import './Bars.css';
 class Bars extends Component {
   constructor(props) {
     super(props)
+    this.state = { bars: props.bars };
     this.activeBar = 0;
+  }
+
+  updateActiveBar(delta) {
+    this.setState((prevState, props) => {
+      prevState.bars[this.activeBar] += parseInt(delta, 10);
+      return { bars: prevState.bars };
+    });
   }
 
   selectBar(event) {
@@ -16,13 +24,13 @@ class Bars extends Component {
     return(
       <section>
         <section className='bars'>
-          {this.props.bars.map((item, index) => (
+          {this.state.bars.map((item, index) => (
             <Bar key={index} value={item} limit={this.props.limit} />
           ))}
         </section>
         <section className='buttons'>
           <select name='bar-select' onChange={e => this.selectBar(e) } defaultValue={this.activeBar}>
-            {this.props.bars.map((item, index) => (
+            {this.state.bars.map((item, index) => (
               <option key={index} value={index}>
                 Bar #{index + 1}
               </option>

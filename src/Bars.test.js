@@ -55,4 +55,15 @@ describe('Bars', () => {
       expect(bars.activeBar).toEqual(1);
     });
   });
+
+  describe('updateActiveBar', () => {
+    it('adjusts the state of the active bar', () => {
+      var bars = TestUtils.renderIntoDocument(
+        <Bars bars={[0,10]} buttons={[3,4]} limit={10}/>
+      );
+      bars.activeBar = 1;
+      bars.updateActiveBar(-20);
+      expect(bars.state.bars[1]).toEqual(-10);
+    });
+  });
 });
