@@ -50,6 +50,28 @@ describe('Bar', () => {
     });
   });
 
+  describe('value', () => {
+    it('returns the value', () => {
+      var bar = new Bar({value: 5, limit: 10});
+      expect(bar.value()).toEqual(5);
+    });
+
+    it('returns the nearest whole number', () => {
+      var bar = new Bar({value: 5.55, limit: 6});
+      expect(bar.value()).toEqual(5);
+    });
+
+    it('returns 0 for negatives', () => {
+      var bar = new Bar({value: -1, limit: 6});
+      expect(bar.value()).toEqual(0);
+    });
+
+    it('returns limit when over limit', () => {
+      var bar = new Bar({value: 10, limit: 6});
+      expect(bar.value()).toEqual(6);
+    });
+  });
+
   describe('width', () => {
     it('returns the % of limit', () => {
       var bar = new Bar({value: 5, limit: 10});

@@ -12,16 +12,21 @@ class Bar extends Component {
     }
   }
 
-  width() {
-    var value = parseInt((this.props.value / this.props.limit) * 100, 10);
+  value() {
+    var value = parseInt(this.props.value, 10);
     if (value < 0)
     {
-      value = 0
-    } else if (value > 100)
+      value = 0;
+    }
+    else if (value > this.props.limit)
     {
-      value = 100
+      value = this.props.limit;
     }
     return value;
+  }
+
+  width() {
+    return parseInt((this.value() / this.props.limit) * 100, 10);
   }
 
   render() {
