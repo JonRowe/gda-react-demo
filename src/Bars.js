@@ -8,15 +8,26 @@ class Bars extends Component {
   }
 
   selectBar(event) {
-    this.activeBar = event.target.value
+    this.activeBar = parseInt(event.target.value, 10)
   }
 
   render() {
     return(
       <section>
-        {this.props.bars.map((item, index) => (
-          <Bar key={index} value={item} limit={this.props.limit} />
-        ))}
+        <section className='bars'>
+          {this.props.bars.map((item, index) => (
+            <Bar key={index} value={item} limit={this.props.limit} />
+          ))}
+        </section>
+        <section className='buttons'>
+          <select name='bar-select' onChange={e => this.selectBar(e) } defaultValue={this.activeBar}>
+            {this.props.bars.map((item, index) => (
+              <option key={index} value={index}>
+                Bar #{index + 1}
+              </option>
+            ))}
+          </select>
+        </section>
       </section>
     );
   }
