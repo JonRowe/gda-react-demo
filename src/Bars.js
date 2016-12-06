@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Bar from './Bar';
+import './Bars.css';
 
 class Bars extends Component {
   constructor(props) {
@@ -27,6 +28,9 @@ class Bars extends Component {
               </option>
             ))}
           </select>
+          {this.props.buttons.map((item, index) => (
+            <button key={index} value={item}>{item}</button>
+          ))}
         </section>
       </section>
     );

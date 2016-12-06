@@ -1,23 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import { findWithClass } from 'react-shallow-testutils';
+import { findAllWithType, findWithClass } from 'react-shallow-testutils';
 
 import Bar from './Bar';
 import Bars from './Bars';
 
 describe('Bars', () => {
   describe('render', () => {
-    it('contains a bar for each bar value', () => {
+    var getSection = (className) => {
       var renderer = TestUtils.createRenderer();
-      var app = renderer.render(
-        <Bars bars={[1,2]} limit={2}/>
+      renderer.render(
+        <Bars bars={[1,2]} buttons={[3,4]} limit={2}/>
       );
-      var result = findWithClass(renderer.getRenderOutput(), 'bars');
+      return findWithClass(renderer.getRenderOutput(), className);
+    };
+
+    it('contains a bar for each bar value', () => {
+      var result = getSection('bars');
 
       expect(result.props.children).toHaveLength(2);
       expect(result.props.children[0]).toEqual(<Bar key={0} value={1} limit={2}/>);
       expect(result.props.children[1]).toEqual(<Bar key={1} value={2} limit={2}/>);
+    });
+
+    it('contains a button for each button value', () => {
+      var result = getSection('buttons');
+      var buttons = findAllWithType(result, 'button')
+
+      expect(buttons).toHaveLength(2);
+      expect(buttons[0].props.value).toEqual(3);
+      expect(buttons[1].props.value).toEqual(4);
     });
 
     it('contains a select to change the active bar', () => {
