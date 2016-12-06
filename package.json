@@ -2,6 +2,7 @@
   "name": "react-bars",
   "version": "0.1.0",
   "private": true,
+  "homepage": "jonrowe.co.uk/gda-react-demo/",
   "devDependencies": {
     "react-addons-test-utils": "^15.4.1",
     "react-scripts": "0.8.1",
