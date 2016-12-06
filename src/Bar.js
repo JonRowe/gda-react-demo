@@ -3,6 +3,12 @@ import './Bar.css';
 
 class Bar extends Component {
 
+  constructor(props) {
+    super(props)
+
+    this.state = { value: this._parseValue(this.props.value) };
+  }
+
   className() {
     if (this.props.value > this.props.limit)
     {
@@ -13,16 +19,7 @@ class Bar extends Component {
   }
 
   value() {
-    var value = parseInt(this.props.value, 10);
-    if (value < 0)
-    {
-      value = 0;
-    }
-    else if (value > this.props.limit)
-    {
-      value = this.props.limit;
-    }
-    return value;
+    return this.state.value;
   }
 
   width() {
@@ -37,6 +34,19 @@ class Bar extends Component {
         </span>
       </div>
     );
+  }
+
+  _parseValue(newValue) {
+    var value = parseInt(newValue, 10);
+    if (value < 0)
+    {
+      value = 0;
+    }
+    else if (value > this.props.limit)
+    {
+      value = this.props.limit;
+    }
+    return value;
   }
 }
 
