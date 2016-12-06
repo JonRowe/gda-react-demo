@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import './Bar.css';
 
 class Bar extends Component {
+
+  className() {
+    if (this.props.value > this.props.limit)
+    {
+      return  'over-limit';
+    } else {
+      return  '';
+    }
+  }
+
   width() {
     var value = parseInt((this.props.value / this.props.limit) * 100, 10);
     if (value < 0)

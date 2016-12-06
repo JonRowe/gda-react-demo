@@ -28,6 +28,18 @@ describe('Bar', () => {
     });
   });
 
+  describe('className', () => {
+    it('defaults to blank', () => {
+      var bar = new Bar({value: 5, limit: 10});
+      expect(bar.className()).toEqual("");
+    });
+
+    it('changes to over-limit when value > limit', () => {
+      var bar = new Bar({value: 50, limit: 10});
+      expect(bar.className()).toEqual("over-limit");
+    });
+  });
+
   describe('width', () => {
     it('returns the % of limit', () => {
       var bar = new Bar({value: 5, limit: 10});
