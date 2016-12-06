@@ -1,3 +1,8 @@
+## Installation
+
+This project was developed with `yarn` so please run `yarn install` to install
+packages, then run one of the scripts below.
+
 ## Available Scripts
 
 In the project directory, you can run:
