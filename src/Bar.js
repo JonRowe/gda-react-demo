@@ -10,12 +10,16 @@ class Bar extends Component {
   }
 
   className() {
-    if (this.props.value > this.props.limit)
+    if (this.value() >= this.props.limit)
     {
       return  'over-limit';
     } else {
       return  '';
     }
+  }
+
+  setValue(newValue) {
+    this.setState({ value: this._parseValue(newValue) });
   }
 
   value() {

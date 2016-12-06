@@ -50,6 +50,33 @@ describe('Bar', () => {
     });
   });
 
+  describe('setValue', () => {
+    var bar = TestUtils.renderIntoDocument(
+      <Bar value={2} limit={6}/>
+    );
+
+    it('sets the value', () => {
+      bar.setValue(5);
+      expect(bar.value()).toEqual(5);
+    });
+
+    it('returns the nearest whole number', () => {
+      bar.setValue(5.4);
+      expect(bar.value()).toEqual(5);
+    });
+
+    it('returns 0 for negatives', () => {
+      bar.setValue(-1);
+      expect(bar.value()).toEqual(0);
+    });
+
+    it('returns limit when over limit', () => {
+      bar.setValue(10);
+      expect(bar.value()).toEqual(6);
+      expect(bar.className()).toEqual("over-limit");
+    });
+  });
+
   describe('value', () => {
     it('returns the value', () => {
       var bar = new Bar({value: 5, limit: 10});
