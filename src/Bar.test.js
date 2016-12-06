@@ -38,5 +38,10 @@ describe('Bar', () => {
       var bar = new Bar({value: 5, limit: 6});
       expect(bar.width()).toEqual(83);
     });
+
+    it('returns 0 for negatives', () => {
+      var bar = new Bar({value: -1, limit: 6});
+      expect(bar.width()).toEqual(0);
+    });
   });
 });
