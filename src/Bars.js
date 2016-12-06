@@ -38,7 +38,7 @@ class Bars extends Component {
           </select>
           {this.props.buttons.map((item, index) => (
             <button key={index} value={item} onClick={e => this.updateActiveBar(e.target.value)}>
-              {item}
+              {item < 0 ? item : '+' + item}
             </button>
           ))}
         </section>
