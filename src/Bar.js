@@ -32,7 +32,7 @@ class Bar extends Component {
   render() {
     return(
       <div className='bar'>
-        {this.width()}%
+        {this.value()} / {this.props.limit} ({this.width()}%)
         <span style={{ width: this.width()+'%' }} className={this.className()}>
         </span>
       </div>

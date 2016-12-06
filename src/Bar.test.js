@@ -16,7 +16,7 @@ describe('Bar', () => {
         render(), 'div'
       );
 
-      expect(bar_div.textContent).toEqual('50%')
+      expect(bar_div.textContent).toEqual('5 / 10 (50%)')
     });
 
     it('contains a span rendering the bar', () => {
