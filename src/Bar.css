@@ -3,9 +3,6 @@
   text-align: center;
   margin: .5em;
   padding: .2em;
-  border-radius: 5px;
-  border: 0px;
-  overflow: hidden;
 }
 
 .bar span {
@@ -15,4 +12,6 @@
   top: 0;
   bottom: 0;
   left: 0;
+  border: 0px;
+  border-radius: 5px;
 }
