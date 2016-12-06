@@ -26,6 +26,16 @@ describe('Bar', () => {
 
       expect(bar_span.style.width).toEqual('50%')
     });
+
+    it('changes the class when value is over limit', () => {
+      var bar_span = TestUtils.findRenderedDOMComponentWithTag(
+        TestUtils.renderIntoDocument(
+          <Bar value='50' limit='10'/>
+        ), 'span'
+      );
+
+      expect(bar_span.className).toEqual('over-limit')
+    });
   });
 
   describe('className', () => {
