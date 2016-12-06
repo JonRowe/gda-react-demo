@@ -6,6 +6,7 @@ class Bars extends Component {
   constructor(props) {
     super(props)
     this.state = { bars: props.bars };
+    this.displayedBars = [];
     this.activeBar = 0;
   }
 
@@ -25,7 +26,12 @@ class Bars extends Component {
       <section>
         <section className='bars'>
           {this.state.bars.map((item, index) => (
-            <Bar key={index} value={item} limit={this.props.limit} />
+            <Bar
+              key={index}
+              limit={this.props.limit}
+              ref={(ref) => { this.displayedBars[index] = ref } }
+              value={item}
+            />
           ))}
         </section>
         <section className='buttons'>

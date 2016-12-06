@@ -18,10 +18,11 @@ describe('Bars', () => {
 
     it('contains a bar for each bar value', () => {
       var result = getSection('bars');
+      var anything = new jasmine.any(Function);
 
       expect(result.props.children).toHaveLength(2);
-      expect(result.props.children[0]).toEqual(<Bar key={0} value={1} limit={2}/>);
-      expect(result.props.children[1]).toEqual(<Bar key={1} value={2} limit={2}/>);
+      expect(result.props.children[0]).toEqual(<Bar key={0} value={1} limit={2} ref={anything} />);
+      expect(result.props.children[1]).toEqual(<Bar key={1} value={2} limit={2} ref={anything} />);
     });
 
     it('contains a button for each button value', () => {
