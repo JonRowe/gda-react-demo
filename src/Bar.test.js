@@ -43,5 +43,10 @@ describe('Bar', () => {
       var bar = new Bar({value: -1, limit: 6});
       expect(bar.width()).toEqual(0);
     });
+
+    it('returns 100 for value over limit', () => {
+      var bar = new Bar({value: 10, limit: 6});
+      expect(bar.width()).toEqual(100);
+    });
   });
 });
