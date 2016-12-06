@@ -46,6 +46,25 @@ describe('Bars', () => {
 
       expect(bars.activeBar).toEqual(1)
     });
+
+    it('adjusts the values of active bars', () => {
+      var bars = TestUtils.renderIntoDocument(
+        <Bars bars={[1,2]} buttons={[3,4]} limit={2}/>
+      );
+
+      var select = TestUtils.findRenderedDOMComponentWithTag(
+        bars, 'select'
+      );
+      select.value = '1'
+      TestUtils.Simulate.change(select);
+
+      var button = TestUtils.scryRenderedDOMComponentsWithTag(
+        bars, 'button'
+      )[1];
+      TestUtils.Simulate.click(button);
+
+      expect(bars.state.bars[1]).toEqual(6)
+    });
   });
 
   describe('selectBar', () => {
