@@ -19,4 +19,10 @@ describe('Bars', () => {
       expect(result.props.children[1]).toEqual(<Bar key={1} value={2} limit={2}/>);
     });
   });
+
+  describe('selectBar', () => {
+    var bars = new Bars({ bars: [] });
+    bars.selectBar({ target: { value: 1 } });
+    expect(bars.activeBar).toEqual(1);
+  });
 });
