@@ -50,7 +50,7 @@ describe('Bars', () => {
 
     it('adjusts the values of active bars', () => {
       var bars = TestUtils.renderIntoDocument(
-        <Bars bars={[1,2]} buttons={[3,4]} limit={2}/>
+        <Bars bars={[1,2]} buttons={[3,4]} limit={5}/>
       );
 
       var select = TestUtils.findRenderedDOMComponentWithTag(
@@ -58,13 +58,15 @@ describe('Bars', () => {
       );
       select.value = '1'
       TestUtils.Simulate.change(select);
+      expect(bars.activeBar).toEqual(1)
 
       var button = TestUtils.scryRenderedDOMComponentsWithTag(
         bars, 'button'
       )[1];
       TestUtils.Simulate.click(button);
 
-      expect(bars.state.bars[1]).toEqual(6)
+      expect(bars.displayedBars[0].value()).toEqual(1)
+      expect(bars.displayedBars[1].value()).toEqual(5) // obeys limit
     });
   });
 
@@ -82,8 +84,8 @@ describe('Bars', () => {
         <Bars bars={[0,10]} buttons={[3,4]} limit={10}/>
       );
       bars.activeBar = 1;
-      bars.updateActiveBar(-20);
-      expect(bars.state.bars[1]).toEqual(-10);
+      bars.updateActiveBar(-5);
+      expect(bars.displayedBars[1].value()).toEqual(5);
     });
   });
 });
